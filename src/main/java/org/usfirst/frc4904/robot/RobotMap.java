@@ -7,7 +7,6 @@ import org.usfirst.frc4904.standard.subsystems.chassis.TankDrive;
 import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 import org.usfirst.frc4904.standard.subsystems.motor.speedmodifiers.AccelerationCap;
 
-
 /**
  * The RobotMap is a map of the physical robot. It stores all port numbers used
  * for all sensors and actuators, which provides flexibility changing wiring and
@@ -62,10 +61,11 @@ public class RobotMap {
 	public RobotMap() {
 		Component.pdp = new PDP();
 		Component.leftWheel = new Motor("LeftWheel", false, new AccelerationCap(Component.pdp),
-			new CANTalonSRX(Port.Motors.CAN.leftDriveA), new CANTalonSRX(Port.Motors.CAN.leftDriveB));
+				new CANTalonSRX(Port.Motors.CAN.leftDriveA), new CANTalonSRX(Port.Motors.CAN.leftDriveB));
 		Component.rightWheel = new Motor("RightWheel", false, new AccelerationCap(Component.pdp),
-			new CANTalonSRX(Port.Motors.CAN.rightDriveA), new CANTalonSRX(Port.Motors.CAN.rightDriveB));
-//		Component.chassis = new TankDrive("OffseasonChassis", Component.leftWheel, Component.rightWheel);
+				new CANTalonSRX(Port.Motors.CAN.rightDriveA), new CANTalonSRX(Port.Motors.CAN.rightDriveB));
+		Component.chassis = new TankDrive("OffseasonChassis", Component.leftWheel, Component.rightWheel);
 		HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
-		HumanInput.Driver.xbox.setDeadZone(Constant.HumanInput.XBOX_MINIMUM_THRESHOLD);	}
+		HumanInput.Driver.xbox.setDeadZone(Constant.HumanInput.XBOX_MINIMUM_THRESHOLD);
+	}
 }
